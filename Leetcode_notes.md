@@ -225,7 +225,7 @@ def missing_number(nums):
 
 ---
 
-````md
+
 # 🧠 Sorting, Dictionaries & Hashing Notes
 
 Practical notes and patterns for **sorting**, **lambda functions**, and **dictionary-based problem solving**, commonly used in **LeetCode and coding interviews**.
