@@ -224,3 +224,211 @@ def missing_number(nums):
 * `+1` needed because `range(n)` excludes `n`
 
 ---
+
+````md
+# 🧠 Sorting, Dictionaries & Hashing Notes
+
+Practical notes and patterns for **sorting**, **lambda functions**, and **dictionary-based problem solving**, commonly used in **LeetCode and coding interviews**.
+
+---
+
+## 🔃 Dictionary Iteration
+
+### Iterating Through a Dictionary
+```python
+for k, v in d.items():
+    print(k, v)
+````
+
+Other common dictionary accessors:
+
+```python
+d.keys()    # returns all keys
+d.values()  # returns all values
+```
+
+---
+
+## 🔢 Sorting in Python
+
+### `sorted()` Function
+
+* Returns a **new sorted list**
+* Does **not** modify the original iterable
+
+```python
+sorted(iterable, key=None, reverse=False)
+```
+
+### Sorting a Dictionary by Value
+
+```python
+print(sorted(x.items(), key=lambda y: y[1]))
+```
+
+* `x.items()` → returns `(key, value)` pairs
+* `lambda y: y[1]` → sorts by value
+
+---
+
+### `.sort()` Method
+
+```python
+nums.sort()
+```
+
+* Works **only on lists**
+* **No return value**
+* Modifies the list **in-place**
+
+---
+
+## 🧩 Lambda Functions
+
+### Syntax
+
+```python
+lambda arguments: expression
+```
+
+Example:
+
+```python
+lambda y: y[1]
+```
+
+Used frequently for:
+
+* Sorting
+* Key extraction
+* One-line functions
+
+---
+
+## ❓ Problem: Find All Missing Numbers
+
+### Problem
+
+Given an array `nums` of length `n` where each number is in the range `[1, n]`, return **all numbers in that range that do not appear in `nums`**.
+
+---
+
+### Examples
+
+```text
+Input:  [4,3,2,7,8,2,3,1]
+Output: [5,6]
+
+Input:  [1,1]
+Output: [2]
+```
+
+---
+
+### Approach
+
+1. Convert list to a set for fast lookup
+2. Iterate through `range(1, n + 1)`
+3. Append missing values to result list
+
+---
+
+### Solution
+
+```python
+def find_disappeared_numbers(nums):
+    set_nums = set(nums)
+    ret = []
+
+    for i in range(1, len(nums) + 1):
+        if i not in set_nums:
+            ret.append(i)
+
+    return ret
+```
+
+**Complexity**
+
+* **Time:** `O(n)`
+* **Space:** `O(n)`
+
+---
+
+## 🔢 Problem: Two Sum
+
+### Problem
+
+Given an array of integers `nums` and an integer `target`, return the indices of the two numbers that add up to `target`.
+
+* Exactly one solution exists
+* Same element cannot be used twice
+* Order does not matter
+
+---
+
+### Examples
+
+```text
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+```
+
+---
+
+## 📘 Dictionary Notes
+
+* Dictionaries store data as **key-value pairs**
+* **Unordered** (no index-based access)
+* **Keys must be unique**
+* **Mutable** (can add, update, or remove entries)
+
+Example:
+
+```python
+d = {'a': 10, 'b': 20, 'c': 30}
+```
+
+---
+
+## ✅ Optimal Two Sum Solution (Hash Map)
+
+```python
+def twoSum(nums: list[int], target: int) -> list[int]:
+    hashMap = {}
+
+    for index, value in enumerate(nums):
+        complement = target - value
+
+        if complement in hashMap:
+            return [index, hashMap[complement]]
+
+        hashMap[value] = index
+```
+
+### Why This Works
+
+* Stores seen values in a dictionary
+* Checks for the complement in `O(1)` time
+* Finds solution in a single pass
+
+**Complexity**
+
+* **Time:** `O(n)`
+* **Space:** `O(n)`
+
+---
+
+## 🎯 Key Takeaways
+
+* Use **sets** for fast existence checks
+* Use **dictionaries** to track values and indices
+* Use **lambda functions** for concise sorting logic
+* Prefer **hash-based solutions** over brute force
+
+
