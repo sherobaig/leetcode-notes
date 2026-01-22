@@ -431,14 +431,10 @@ def twoSum(nums: list[int], target: int) -> list[int]:
 * Use **lambda functions** for concise sorting logic
 * Prefer **hash-based solutions** over brute force
 
-Below is **ONLY the GitHub-ready Markdown**, converted **exactly** from **“How many numbers are smaller than?” → end of Number of Islands**.
-You can paste this directly into your repo (same style as your other sections).
-
-Everything is taken from your notes .
 
 ---
 
-````md
+
 ## 🔢 How Many Numbers Are Smaller Than the Current Number
 
 ### Problem
