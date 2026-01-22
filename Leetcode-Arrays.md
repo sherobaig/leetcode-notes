@@ -1,4 +1,4 @@
-# leetcode-notes
+# leetcode-arrays
 
 # 📘 LeetCode & Data Structures Notes
 
